@@ -50,6 +50,12 @@ const Header = (props) => {
             },
         ]
     )
+    const onCompleted = (id) => {
+        setState(
+            tasks.map((task)=> task.id === id ? {...task,reminder:!task.reminder} : task)
+        )
+    }
+
     const deleteTask = (id) =>{
         setState(tasks.filter((task) => task.id !== id ));
     }
@@ -94,7 +100,7 @@ const Header = (props) => {
                     <div className="container">
 
                         {/*Add component*/}
-                        <Task tasks={tasks} onDelete={deleteTask}/>
+                        {tasks.length > 0 ? <Task tasks={tasks} onDelete={deleteTask} onCompleted={onCompleted} /> : "No task"}
 
                     </div>
                 </div>

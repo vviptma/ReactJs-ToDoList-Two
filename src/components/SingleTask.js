@@ -1,7 +1,7 @@
 //import FaTimes from FontAwesome
 import {FaEye, FaTimes, FaTrash} from "react-icons/fa";
 
-const SingleTask = ({task,onDelete},{index}) => {
+const SingleTask = ({task, onDelete, onCompleted}, {index}) => {
     return (
         <>
             <div className="col" key={index}>
@@ -13,11 +13,19 @@ const SingleTask = ({task,onDelete},{index}) => {
                         <text x="50%" y="50%" fill="#eceeef" dy=".3em">Mission # {task.id}</text>
                     </svg>
                     <div className="card-body">
-                        <p className="card-text">{task.text}</p>
+                        <p className={`${task.reminder ? `completed` : ''}`}>{task.text}</p>
                         <div className="d-flex justify-content-between align-items-center">
                             <div className="btn-group">
-                                <button type="button" className="btn btn-sm btn-outline-secondary"><FaEye/></button>
-                                <button onClick={() => onDelete(task.id)} type="button" className="btn btn-sm btn-outline-secondary"><FaTrash/></button>
+                                <button onClick={() => onCompleted(task.id)}
+                                        type="button"
+                                        className="btn btn-sm btn-outline-secondary">
+                                        <FaEye/>
+                                </button>
+                                <button onClick={() => onDelete(task.id)}
+                                        type="button"
+                                        className="btn btn-sm btn-outline-secondary">
+                                        <FaTrash/>
+                                </button>
                             </div>
                             <small className="text-muted">{task.day}</small>
                         </div>
