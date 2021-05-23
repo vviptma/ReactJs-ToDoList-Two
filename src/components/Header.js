@@ -1,20 +1,19 @@
-//check type props
+//Check prop-types
 import PropTypes from 'prop-types';
 
-//use React lib
+//Using Lib
 import {useState, useEffect} from 'react'
 
-//Import components
+//Import Components
 import Button from "./Button";
 import Task from "./Task";
 import AddTask from "./AddTask";
 
-
-//Return view
+//return Header
 const Header = (props) => {
     const [tasks, setState] = useState([])
 
-    //setState from data
+    //useEffect to view
     useEffect(() => {
         const getTask = async () => {
             const taskfromServer = await fetchTask()
@@ -23,33 +22,65 @@ const Header = (props) => {
         getTask()
     }, [])
 
-    //Async data.json to data
+    //Async with db.json
     const fetchTask = async () => {
         const res = await fetch('http://localhost:5000/tasks')
         const data = await res.json()
         return data;
     }
 
-    const onCompleted = (id) => {
+    //Async with ID
+    const fetchIDTask = async (id) => {
+        const res = await fetch(`http://localhost:5000/tasks/${id}`)
+        const data = await res.json()
+        return data;
+    }
+    //Update reminder with ID
+    const onCompleted = async (id) => {
+        const tasktoCompleted = await fetchIDTask(id)
+        const updateTask = {...tasktoCompleted, reminder: !tasktoCompleted.reminder}
+
+        const res = await fetch(`http://localhost:5000/tasks/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(updateTask),
+        })
+        const data = await res.json()
+
         setState(
-            tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task)
+            tasks.map((tasks) => tasks.id === id ? {...tasks, reminder: data.reminder} : tasks)
         )
     }
 
-    const deleteTask = (id) => {
+    //deleteTask with ID
+    const deleteTask = async (id) => {
+        await fetch(`http://localhost:5000/tasks/${id}`, {method: 'DELETE'})
+
         setState(tasks.filter((task) => task.id !== id));
     }
 
-    const addTask = (nhiemvu) => {
-        const id = Math.floor(Math.random() * 10000) + 1
-        console.log(id)
+    //addTask with setState and async
+    const addTask = async (nhiemvu) => {
 
-        const newTask = {id, ...nhiemvu}
+        const res = await fetch(`http://localhost:5000/tasks`, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(nhiemvu),
+        })
+        const data = await res.json()
 
-        setState([...tasks, newTask])
+        setState([...tasks, data])
+
+        // const id = Math.floor(Math.random() * 10000) + 1
+        // console.log(id)
+        // const newTask = {id, ...nhiemvu}
+        // setState([...tasks, newTask])
     }
 
-    //
     const [showAddTask, setShowAddTask] = useState(false)
 
     return (

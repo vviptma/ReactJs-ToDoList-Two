@@ -1,40 +1,28 @@
 {
   "tasks": [
     {
-      "id": "1",
-      "text": "Vietnamese",
-      "day": "21/1/2021",
-      "reminder": true
+      "text": "a",
+      "day": "a",
+      "reminder": true,
+      "id": 1
     },
     {
-      "id": "2",
-      "text": "Japanese",
-      "day": "21/1/2021",
-      "reminder": false
+      "text": "a",
+      "day": "a",
+      "reminder": false,
+      "id": 2
     },
     {
-      "id": "3",
-      "text": "Chinese",
-      "day": "21/1/2021",
-      "reminder": true
+      "text": "a",
+      "day": "a",
+      "reminder": true,
+      "id": 3
     },
     {
-      "id": "4",
-      "text": "Korean",
-      "day": "21/1/2021",
-      "reminder": false
-    },
-    {
-      "id": "5",
-      "text": "Ho Chi Minh",
-      "day": "21/1/2021",
-      "reminder": false
-    },
-    {
-      "id": "6",
-      "text": "Ha Noi",
-      "day": "21/1/2021",
-      "reminder": false
+      "text": "a",
+      "day": "a",
+      "reminder": false,
+      "id": 4
     }
   ]
 }
