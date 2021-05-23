@@ -1,28 +1,40 @@
 {
   "tasks": [
     {
-      "text": "a",
-      "day": "a",
+      "text": "Học ReactJs",
+      "day": "23.05.2021",
       "reminder": true,
       "id": 1
     },
     {
-      "text": "a",
-      "day": "a",
-      "reminder": false,
+      "text": "Học Laravel 8x",
+      "day": "01.05.2021",
+      "reminder": true,
       "id": 2
     },
     {
-      "text": "a",
-      "day": "a",
+      "text": "Học Tiếng Anh",
+      "day": "01.05.2021",
       "reminder": true,
       "id": 3
     },
     {
-      "text": "a",
-      "day": "a",
+      "text": "Học VueJs",
+      "day": "23.05.2021",
       "reminder": false,
       "id": 4
+    },
+    {
+      "text": "Dự án PHP MySQL",
+      "day": "01.05.2021",
+      "reminder": false,
+      "id": 5
+    },
+    {
+      "text": "Dự án Website đọc truyện online",
+      "day": "01.05.2021",
+      "reminder": true,
+      "id": 6
     }
   ]
 }
