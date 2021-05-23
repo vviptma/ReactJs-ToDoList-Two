@@ -10,7 +10,7 @@ import Task from "./Task";
 
 //Return view
 const Header = (props) => {
-    const [tasks, setTasks] = useState(
+    const [tasks, setState] = useState(
         [
             {
                 id: 1,
@@ -50,6 +50,9 @@ const Header = (props) => {
             },
         ]
     )
+    const deleteTask = (id) =>{
+        setState(tasks.filter((task) => task.id !== id ));
+    }
 
     return (
         <div>
@@ -57,7 +60,8 @@ const Header = (props) => {
 
             <header className="p-3 bg-dark text-white">
                 <div className="container">
-                    <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <div
+                        className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                         <a href="/" className="">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Circle-icons-image.svg"
                                  width="80" height="80"></img>
@@ -86,12 +90,21 @@ const Header = (props) => {
             </header>
 
             <main>
+                <div className="album py-5 bg-light">
+                    <div className="container">
+
+                        {/*Add component*/}
+                        <Task tasks={tasks} onDelete={deleteTask}/>
+
+                    </div>
+                </div>
 
                 <section className="py-5 text-center container">
                     <div className="row py-lg-2">
                         <div className="col-lg-6 col-md-8 mx-auto">
                             <h1 className="fw-light">Todo List</h1>
-                            <p className="lead text-muted">Đây là project nhỏ nhằm mục đích tự mài dũa kỹ năng ReactJs</p>
+                            <p className="lead text-muted">Đây là project nhỏ nhằm mục đích tự mài dũa kỹ năng
+                                ReactJs</p>
                             <p>
                                 <a href="#" className="btn btn-primary my-2 mx-2">Hành động 1</a>
                                 <a href="#" className="btn btn-secondary my-2 mx-2">Hành động 2</a>
@@ -99,15 +112,6 @@ const Header = (props) => {
                         </div>
                     </div>
                 </section>
-
-                <div className="album py-5 bg-light">
-                    <div className="container">
-
-
-                            <Task tasks={tasks}/>
-
-                    </div>
-                </div>
 
             </main>
         </div>

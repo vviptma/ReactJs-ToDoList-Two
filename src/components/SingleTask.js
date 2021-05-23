@@ -1,7 +1,7 @@
 //import FaTimes from FontAwesome
 import {FaEye, FaTimes, FaTrash} from "react-icons/fa";
 
-const SingleTask = ({task},{index}) => {
+const SingleTask = ({task,onDelete},{index}) => {
     return (
         <>
             <div className="col" key={index}>
@@ -16,11 +16,8 @@ const SingleTask = ({task},{index}) => {
                         <p className="card-text">{task.text}</p>
                         <div className="d-flex justify-content-between align-items-center">
                             <div className="btn-group">
-                                <button type="button" className="btn btn-sm btn-outline-secondary">
-                                    Xem nhiệm vụ <FaEye/>
-                                </button>
-                                <button type="button" className="btn btn-sm btn-outline-secondary">
-                                    Xóa nhiệm vụ <FaTrash/></button>
+                                <button type="button" className="btn btn-sm btn-outline-secondary"><FaEye/></button>
+                                <button onClick={() => onDelete(task.id)} type="button" className="btn btn-sm btn-outline-secondary"><FaTrash/></button>
                             </div>
                             <small className="text-muted">{task.day}</small>
                         </div>
