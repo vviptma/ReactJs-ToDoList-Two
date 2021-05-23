@@ -1,5 +1,5 @@
-import React from 'react';
-
+//import FaTimes from FontAwesome
+import {FaEye, FaTimes, FaTrash} from "react-icons/fa";
 
 const SingleTask = ({task},{index}) => {
     return (
@@ -16,12 +16,13 @@ const SingleTask = ({task},{index}) => {
                         <p className="card-text">{task.text}</p>
                         <div className="d-flex justify-content-between align-items-center">
                             <div className="btn-group">
-                                <button type="button" className="btn btn-sm btn-outline-secondary">Xem
+                                <button type="button" className="btn btn-sm btn-outline-secondary">
+                                    Xem nhiệm vụ <FaEye/>
                                 </button>
-                                <button type="button" className="btn btn-sm btn-outline-secondary">Sửa
-                                </button>
+                                <button type="button" className="btn btn-sm btn-outline-secondary">
+                                    Xóa nhiệm vụ <FaTrash/></button>
                             </div>
-                            <small className="text-muted">My Task</small>
+                            <small className="text-muted">{task.day}</small>
                         </div>
                     </div>
                 </div>
