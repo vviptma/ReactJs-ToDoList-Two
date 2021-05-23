@@ -17,3 +17,6 @@ code {
   opacity: 0.5;
   color: #ffffff;
 }
+.mt-auto{
+  margin-top: auto!important;
+}
