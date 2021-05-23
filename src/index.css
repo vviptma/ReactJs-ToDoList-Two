@@ -13,6 +13,5 @@ code {
 }
 
 .completed {
-  background-color: green;
-  text-decoration: 2px line-through red;
+  opacity: 0.5;
 }

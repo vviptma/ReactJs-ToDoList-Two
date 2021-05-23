@@ -2,7 +2,6 @@ import React, {useState} from 'react'
 
 
 const AddTask = ({onAddTask}) => {
-
     //Set default
     const [text, setText] = useState('')
     const [day, setDay] = useState('')
@@ -34,15 +33,20 @@ const AddTask = ({onAddTask}) => {
                         <form className="add-form" onSubmit={onSubmit}>
                             <div className="mb-3">
                                 <label htmlFor="name_task" className="form-label">Name Task</label>
-                                <input value={text} onChange={ (e) => setText(e.target.value)} placeholder="Add task" type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required/>
+                                <input value={text} onChange={(e) => setText(e.target.value)} placeholder="Add task"
+                                       type="text" className="form-control" id="exampleInputEmail1"
+                                       aria-describedby="emailHelp" required/>
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="date_task" placeholder="Add date" className="form-label">Date</label>
-                                <input value={day} onChange={ (e) => setDay(e.target.value)} type="text" className="form-control" id="exampleInputPassword1" required/>
+                                <input value={day} onChange={(e) => setDay(e.target.value)} type="text"
+                                       className="form-control" id="exampleInputPassword1" required/>
                             </div>
                             <div className="mb-3 form-check">
                                 <label className="form-check-label" htmlFor="exampleCheck1">Reminder</label>
-                                <input checked={reminder} value={reminder} onChange={ (e) => setReminder(e.currentTarget.checked)} type="checkbox" className="form-check-input" id="exampleCheck1"/>
+                                <input checked={reminder} value={reminder}
+                                       onChange={(e) => setReminder(e.currentTarget.checked)} type="checkbox"
+                                       className="form-check-input" id="exampleCheck1"/>
                             </div>
                             <div className="text-center">
                                 <button type="submit" className="btn btn-primary">Submit</button>

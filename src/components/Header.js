@@ -9,6 +9,7 @@ import Button from "./Button";
 import Task from "./Task";
 import AddTask from "./AddTask";
 
+
 //Return view
 const Header = (props) => {
     const [tasks, setState] = useState(
@@ -53,22 +54,25 @@ const Header = (props) => {
     )
     const onCompleted = (id) => {
         setState(
-            tasks.map((task)=> task.id === id ? {...task,reminder:!task.reminder} : task)
+            tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task)
         )
     }
 
-    const deleteTask = (id) =>{
-        setState(tasks.filter((task) => task.id !== id ));
+    const deleteTask = (id) => {
+        setState(tasks.filter((task) => task.id !== id));
     }
 
     const addTask = (nhiemvu) => {
-        const id = Math.floor(Math.random() * 10000 ) + 1
+        const id = Math.floor(Math.random() * 10000) + 1
         console.log(id)
 
         const newTask = {id, ...nhiemvu}
 
         setState([...tasks, newTask])
     }
+
+    //
+    const [showAddTask, setShowAddTask] = useState(false)
 
     return (
         <div>
@@ -104,8 +108,10 @@ const Header = (props) => {
                 </div>
             </header>
             <section>
-                <div className="my-5 py-5 container">
-                        <AddTask onAddTask={addTask}/>
+                <div className="my-2 container">
+                    <Button onAdd = {() => setShowAddTask(!showAddTask)}
+                            showAddBtn = {showAddTask}/>
+                    {showAddTask && <AddTask onAddTask={addTask}/>}
                 </div>
             </section>
             <main>
@@ -113,7 +119,8 @@ const Header = (props) => {
                     <div className="container">
 
                         {/*Add component*/}
-                        {tasks.length > 0 ? <Task tasks={tasks} onDelete={deleteTask} onCompleted={onCompleted} /> : "No task"}
+                        {tasks.length > 0 ?
+                            <Task tasks={tasks} onDelete={deleteTask} onCompleted={onCompleted}/> : "No task"}
 
                     </div>
                 </div>
