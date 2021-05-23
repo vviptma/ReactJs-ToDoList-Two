@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import SingleTask from "./SingleTask";
 
 const Task = ({tasks, onDelete, onCompleted}) => {

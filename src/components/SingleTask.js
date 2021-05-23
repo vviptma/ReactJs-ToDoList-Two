@@ -1,5 +1,5 @@
 //import FaTimes from FontAwesome
-import {FaEye, FaTrash} from "react-icons/fa";
+import {FaCheck, FaTrash} from "react-icons/fa";
 
 const SingleTask = ({task, onDelete, onCompleted}, {index}) => {
     return (
@@ -20,8 +20,8 @@ const SingleTask = ({task, onDelete, onCompleted}, {index}) => {
                             <div className="btn-group">
                                 <button onClick={() => onCompleted(task.id)}
                                         type="button"
-                                        className="btn btn-sm btn-outline-secondary">
-                                        <FaEye/>
+                                            className={`${task.reminder ? `completed` : 'btn btn-sm btn-outline-secondary'}`}>
+                                        <FaCheck/>
                                 </button>
                                 <button onClick={() => onDelete(task.id)}
                                         type="button"
@@ -29,7 +29,7 @@ const SingleTask = ({task, onDelete, onCompleted}, {index}) => {
                                         <FaTrash/>
                                 </button>
                             </div>
-                            <small className={`${task.reminder ? `completed` : ''}`}>{task.day}</small>
+                            <small>{task.day}</small>
                         </div>
                     </div>
                 </div>

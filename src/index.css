@@ -13,5 +13,7 @@ code {
 }
 
 .completed {
+  background: green;
   opacity: 0.5;
+  color: #ffffff;
 }

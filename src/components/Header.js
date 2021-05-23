@@ -82,16 +82,12 @@ const Header = (props) => {
                     <div
                         className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                         <a href="/" className="">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Circle-icons-image.svg"
-                                 width="80" height="80"></img>
+                            <img src={"./logo.svg"}
+                                 width="80" height="80" alt="Logo"></img>
                         </a>
 
                         <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                            <li><a href="#" className="nav-link px-2 text-secondary">Home</a></li>
-                            <li><a href="#" className="nav-link px-2 text-white">Features</a></li>
-                            <li><a href="#" className="nav-link px-2 text-white">Pricing</a></li>
-                            <li><a href="#" className="nav-link px-2 text-white">FAQs</a></li>
-                            <li><a href="#" className="nav-link px-2 text-white">About</a></li>
+                            <li><a href={"/"} className="nav-link px-2 text-secondary">Home</a></li>
                         </ul>
 
                         <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -131,10 +127,6 @@ const Header = (props) => {
                             <h1 className="fw-light">Todo List</h1>
                             <p className="lead text-muted">Đây là project nhỏ nhằm mục đích tự mài dũa kỹ năng
                                 ReactJs</p>
-                            <p>
-                                <a href="#" className="btn btn-primary my-2 mx-2">Hành động 1</a>
-                                <a href="#" className="btn btn-secondary my-2 mx-2">Hành động 2</a>
-                            </p>
                         </div>
                     </div>
                 </section>
