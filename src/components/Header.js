@@ -7,6 +7,7 @@ import React, {useState} from 'react'
 //Import components
 import Button from "./Button";
 import Task from "./Task";
+import AddTask from "./AddTask";
 
 //Return view
 const Header = (props) => {
@@ -60,10 +61,18 @@ const Header = (props) => {
         setState(tasks.filter((task) => task.id !== id ));
     }
 
+    const addTask = (nhiemvu) => {
+        const id = Math.floor(Math.random() * 10000 ) + 1
+        console.log(id)
+
+        const newTask = {id, ...nhiemvu}
+
+        setState([...tasks, newTask])
+    }
+
     return (
         <div>
             <div className="b-example-divider"></div>
-
             <header className="p-3 bg-dark text-white">
                 <div className="container">
                     <div
@@ -94,7 +103,11 @@ const Header = (props) => {
                     </div>
                 </div>
             </header>
-
+            <section>
+                <div className="my-5 py-5 container">
+                        <AddTask onAddTask={addTask}/>
+                </div>
+            </section>
             <main>
                 <div className="album py-5 bg-light">
                     <div className="container">

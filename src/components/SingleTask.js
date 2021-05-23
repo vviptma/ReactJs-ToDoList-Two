@@ -1,5 +1,5 @@
 //import FaTimes from FontAwesome
-import {FaEye, FaTimes, FaTrash} from "react-icons/fa";
+import {FaEye, FaTrash} from "react-icons/fa";
 
 const SingleTask = ({task, onDelete, onCompleted}, {index}) => {
     return (
@@ -10,7 +10,7 @@ const SingleTask = ({task, onDelete, onCompleted}, {index}) => {
                          xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
                          preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title>
                         <rect width="100%" height="100%" fill="#55595c"></rect>
-                        <text x="50%" y="50%" fill="#eceeef" dy=".3em">Mission # {task.id}</text>
+                        <text x="40%" y="50%" fill="#eceeef" dy=".3em">Mission # {task.id}</text>
                     </svg>
                     <div className="card-body">
                         <p className={`${task.reminder ? `completed` : ''}`}>{task.text}</p>
@@ -27,7 +27,7 @@ const SingleTask = ({task, onDelete, onCompleted}, {index}) => {
                                         <FaTrash/>
                                 </button>
                             </div>
-                            <small className="text-muted">{task.day}</small>
+                            <small className={`${task.reminder ? `completed` : ''}`}>{task.day}</small>
                         </div>
                     </div>
                 </div>
