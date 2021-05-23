@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 
 //use React lib
-import React, {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 //Import components
 import Button from "./Button";
@@ -12,46 +12,24 @@ import AddTask from "./AddTask";
 
 //Return view
 const Header = (props) => {
-    const [tasks, setState] = useState(
-        [
-            {
-                id: 1,
-                text: 'Learn English',
-                day: '21/1/2021',
-                reminder: true
-            },
-            {
-                id: 2,
-                text: 'Learn English 2',
-                day: '21/1/2021',
-                reminder: false
-            },
-            {
-                id: 3,
-                text: 'Learn English 3',
-                day: '21/1/2021',
-                reminder: true
-            },
-            {
-                id: 4,
-                text: 'Learn English 4',
-                day: '21/1/2021',
-                reminder: false
-            },
-            {
-                id: 5,
-                text: 'Learn English 5',
-                day: '21/1/2021',
-                reminder: false
-            },
-            {
-                id: 6,
-                text: 'Learn English 6',
-                day: '21/1/2022',
-                reminder: false
-            },
-        ]
-    )
+    const [tasks, setState] = useState([])
+
+    //setState from data
+    useEffect(() => {
+        const getTask = async () => {
+            const taskfromServer = await fetchTask()
+            setState(taskfromServer)
+        }
+        getTask()
+    }, [])
+
+    //Async data.json to data
+    const fetchTask = async () => {
+        const res = await fetch('http://localhost:5000/tasks')
+        const data = await res.json()
+        return data;
+    }
+
     const onCompleted = (id) => {
         setState(
             tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task)
@@ -105,8 +83,8 @@ const Header = (props) => {
             </header>
             <section>
                 <div className="my-2 container">
-                    <Button onAdd = {() => setShowAddTask(!showAddTask)}
-                            showAddBtn = {showAddTask}/>
+                    <Button onAdd={() => setShowAddTask(!showAddTask)}
+                            showAddBtn={showAddTask}/>
                     {showAddTask && <AddTask onAddTask={addTask}/>}
                 </div>
             </section>
