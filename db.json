@@ -15,13 +15,13 @@
     {
       "text": "Học Tiếng Anh",
       "day": "01.05.2021",
-      "reminder": false,
+      "reminder": true,
       "id": 3
     },
     {
       "text": "Học VueJs",
       "day": "23.05.2021",
-      "reminder": false,
+      "reminder": true,
       "id": 4
     },
     {
@@ -35,6 +35,12 @@
       "day": "01.05.2021",
       "reminder": true,
       "id": 6
+    },
+    {
+      "text": "Ảo thật đấy",
+      "day": "22.22.2222",
+      "reminder": true,
+      "id": 7
     }
   ]
 }
